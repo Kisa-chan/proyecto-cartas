@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://5r6eoxiqsqrl"]
+
+[ext_resource type="PackedScene" uid="uid://c51e3pb5saayu" path="res://Scenes/Carta/Carta.tscn" id="1_h0ot1"]
+[ext_resource type="Texture2D" uid="uid://by3upf083u85a" path="res://Assets/Images/hp2.png" id="2_0njgv"]
+[ext_resource type="Script" uid="uid://d4jdlaj0wfvv8" path="res://Scenes/Carta/Personaje/CartaPersonaje.gd" id="2_e7h4n"]
+[ext_resource type="Texture2D" uid="uid://xi6fj4cmfvn0" path="res://Assets/Images/equipar.png" id="3_e7h4n"]
+
+[node name="CartaPersonaje" instance=ExtResource("1_h0ot1")]
+script = ExtResource("2_e7h4n")
+
+[node name="HP" type="Sprite2D" parent="Frente" index="0"]
+position = Vector2(-203, -285)
+texture = ExtResource("2_0njgv")
+
+[node name="TextoHP" type="Label" parent="Frente/HP" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Equipo" type="Sprite2D" parent="Frente" index="1"]
+position = Vector2(-205, -214)
+texture = ExtResource("3_e7h4n")
+
+[node name="TextoEquipo" type="Label" parent="Frente/Equipo" index="0"]
+offset_right = 40.0
+offset_bottom = 23.0
