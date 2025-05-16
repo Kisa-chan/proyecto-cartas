@@ -1,24 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://c51e3pb5saayu"]
+[gd_scene load_steps=7 format=3 uid="uid://c51e3pb5saayu"]
 
 [ext_resource type="Script" uid="uid://bt6fddn7ub7or" path="res://Scenes/Carta/Carta.gd" id="1_cnj1w"]
 [ext_resource type="Texture2D" uid="uid://cafoplstb7qra" path="res://Assets/Images/Cartas/DefaultFront.png" id="2_wdsmq"]
 [ext_resource type="Texture2D" uid="uid://c8nejjumycbqq" path="res://Assets/Images/Cartas/DefaultBack.png" id="3_17ssh"]
+[ext_resource type="Texture2D" uid="uid://xi6fj4cmfvn0" path="res://Assets/Images/equipar.png" id="4_1jrrn"]
+[ext_resource type="Texture2D" uid="uid://by3upf083u85a" path="res://Assets/Images/hp2.png" id="5_68wrh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cnj1w"]
-size = Vector2(82, 142)
+size = Vector2(409, 707)
 
 [node name="Carta" type="Node2D"]
 script = ExtResource("1_cnj1w")
 
 [node name="Dorso" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_17ssh")
 
 [node name="Frente" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_wdsmq")
+
+[node name="Equipar" type="Sprite2D" parent="Frente"]
+position = Vector2(-204, -224)
+texture = ExtResource("4_1jrrn")
+
+[node name="TextoEquipo" type="Label" parent="Frente/Equipar"]
+offset_left = -16.0
+offset_top = -11.0
+offset_right = 13.0
+offset_bottom = 12.0
+
+[node name="HP" type="Sprite2D" parent="Frente"]
+position = Vector2(-203, -290)
+texture = ExtResource("5_68wrh")
+
+[node name="TextoHP" type="Label" parent="Frente/HP"]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 16.0
+offset_bottom = 15.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_cnj1w")

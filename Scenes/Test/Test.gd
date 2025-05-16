@@ -5,6 +5,8 @@ func _ready() -> void:
 	
 	# Crear una instancia de la carta sin necesidad de texturas aún
 	var carta = preload("res://Scenes/Carta/Carta.tscn").instantiate()
+	
+	#var carta = Carta
 	# Configurar el tamaño desde el principio
 	#carta.ancho = 120.0
 	#carta.alto = 180.0
@@ -16,8 +18,3 @@ func _ready() -> void:
 	# pero mantendrá el tamaño establecido
 	carta.cambiar_tipo("yaoyao")
 	carta.position = Vector2(100, 300)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -11,7 +11,7 @@ class_name Carta
 @onready var sprite_dorso = $Dorso
 
 # Escala base para cuando no hay texturas
-var escala_base = Vector2(1.0, 1.0)
+var escala_base = Vector2(0.2, 0.2)
 
 # Llamada a Diccionario que mapea tipos de cartas a las rutas de las texturas
 var card_database_reference
@@ -30,6 +30,7 @@ func actualizar_apariencia():
 		var textura = load(card_database_reference.texturas_frente[personaje])
 		if textura:
 			sprite_frente.texture = textura
+			sprite_frente.scale = escala_base
 	
 	#Obtengo el tipo dependiendo del personaje  
 	var tipo = card_database_reference.personajes[personaje]
@@ -38,6 +39,7 @@ func actualizar_apariencia():
 		var textura_dorso = load(card_database_reference.textura_dorso[tipo])
 		if textura_dorso:
 			sprite_dorso.texture = textura_dorso
+			sprite_dorso.scale = escala_base
 	
 	# Mostrar el lado correspondiente
 	sprite_frente.visible = boca_arriba

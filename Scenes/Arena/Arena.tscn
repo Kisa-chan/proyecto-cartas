@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://clik6addwock1"]
+
+[node name="Arena" type="Node2D"]
+
+[node name="SlotsJugador" type="Node2D" parent="."]
+
+[node name="AreaDeckJugador" type="Node2D" parent="SlotsJugador"]
+
+[node name="SlotsEnemigo" type="Node2D" parent="."]
+
+[node name="AreaDeckEnemigo" type="Node2D" parent="SlotsEnemigo"]
