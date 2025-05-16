@@ -1,11 +1,18 @@
-[gd_scene format=3 uid="uid://clik6addwock1"]
+[gd_scene load_steps=2 format=3 uid="uid://clik6addwock1"]
+
+[ext_resource type="Script" uid="uid://nteont85p7hi" path="res://Scenes/Arena/Arena.gd" id="1_lh3uc"]
 
 [node name="Arena" type="Node2D"]
+script = ExtResource("1_lh3uc")
 
-[node name="SlotsJugador" type="Node2D" parent="."]
+[node name="AreaJugador" type="Node2D" parent="."]
 
-[node name="AreaDeckJugador" type="Node2D" parent="SlotsJugador"]
+[node name="SlotsJugador" type="Node2D" parent="AreaJugador"]
 
-[node name="SlotsEnemigo" type="Node2D" parent="."]
+[node name="AreaDeckJugador" type="Node2D" parent="AreaJugador"]
 
-[node name="AreaDeckEnemigo" type="Node2D" parent="SlotsEnemigo"]
+[node name="AreaEnemigo" type="Node2D" parent="."]
+
+[node name="SlotsEnemigo" type="Node2D" parent="AreaEnemigo"]
+
+[node name="AreaDeckEnemigo" type="Node2D" parent="AreaEnemigo"]
