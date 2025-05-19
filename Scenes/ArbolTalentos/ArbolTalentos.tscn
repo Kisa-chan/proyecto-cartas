@@ -1,0 +1,179 @@
+[gd_scene load_steps=22 format=3 uid="uid://c8jqymuuql5ew"]
+
+[ext_resource type="Script" uid="uid://cwlwx3jg640f6" path="res://Scenes/ArbolTalentos/ArbolTalentos.gd" id="1_hbjy8"]
+[ext_resource type="PackedScene" uid="uid://cmd2kiqblttj2" path="res://Scenes/ArbolTalentos/Icon/TalentIcon.tscn" id="1_kh8n8"]
+[ext_resource type="Resource" uid="uid://4cgy43pe0okd" path="res://Resources/Talentos/talento1.tres" id="3_ndxkf"]
+[ext_resource type="Resource" uid="uid://drdor5pf03pak" path="res://Resources/Talentos/talento2.tres" id="4_yur5o"]
+[ext_resource type="Resource" uid="uid://cv450yhf4c0oo" path="res://Resources/Talentos/talento3.tres" id="5_yk3i3"]
+[ext_resource type="Resource" uid="uid://0tno62qa1exh" path="res://Resources/Talentos/talento4.tres" id="6_b1blu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pj404"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hbjy8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chlb5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndxkf"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k57sw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndxkf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yur5o"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yk3i3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk3i3"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qlu0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3w67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1blu"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f43xs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p2txh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2meac"]
+
+[node name="ArbolTalentos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hbjy8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Columnas" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Tier1" type="VBoxContainer" parent="MarginContainer/Columnas"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="TalentIcon" parent="MarginContainer/Columnas/Tier1" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_pj404")
+
+[node name="TalentIcon2" parent="MarginContainer/Columnas/Tier1" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hbjy8")
+
+[node name="TalentIcon3" parent="MarginContainer/Columnas/Tier1" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_chlb5")
+
+[node name="TalentIcon4" parent="MarginContainer/Columnas/Tier1" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ndxkf")
+talentResource = ExtResource("3_ndxkf")
+
+[node name="TalentIcon5" parent="MarginContainer/Columnas/Tier1" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_k57sw")
+
+[node name="Tier2" type="VBoxContainer" parent="MarginContainer/Columnas"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="TalentIcon" parent="MarginContainer/Columnas/Tier2" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ndxkf")
+
+[node name="TalentIcon2" parent="MarginContainer/Columnas/Tier2" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yur5o")
+talentResource = ExtResource("4_yur5o")
+
+[node name="TalentIcon3" parent="MarginContainer/Columnas/Tier2" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_yk3i3")
+
+[node name="TalentIcon4" parent="MarginContainer/Columnas/Tier2" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yk3i3")
+talentResource = ExtResource("5_yk3i3")
+
+[node name="TalentIcon5" parent="MarginContainer/Columnas/Tier2" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_qlu0h")
+
+[node name="Tier3" type="VBoxContainer" parent="MarginContainer/Columnas"]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="TalentIcon" parent="MarginContainer/Columnas/Tier3" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_c3w67")
+
+[node name="TalentIcon2" parent="MarginContainer/Columnas/Tier3" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b1blu")
+talentResource = ExtResource("6_b1blu")
+
+[node name="TalentIcon3" parent="MarginContainer/Columnas/Tier3" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f43xs")
+
+[node name="TalentIcon4" parent="MarginContainer/Columnas/Tier3" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_p2txh")
+
+[node name="TalentIcon5" parent="MarginContainer/Columnas/Tier3" instance=ExtResource("1_kh8n8")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_2meac")

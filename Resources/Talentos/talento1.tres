@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TalentResource" load_steps=5 format=3 uid="uid://4cgy43pe0okd"]
+
+[ext_resource type="Script" uid="uid://2svpvj73tu77" path="res://Resources/ArbolTalentos.gd" id="1_u80ba"]
+[ext_resource type="Texture2D" uid="uid://xi6fj4cmfvn0" path="res://Assets/Images/equipar.png" id="2_1xi6q"]
+[ext_resource type="Resource" uid="uid://drdor5pf03pak" path="res://Resources/Talentos/talento2.tres" id="3_khhdb"]
+[ext_resource type="Resource" uid="uid://cv450yhf4c0oo" path="res://Resources/Talentos/talento3.tres" id="4_fdxda"]
+
+[resource]
+script = ExtResource("1_u80ba")
+talentIcon = ExtResource("2_1xi6q")
+is_unlocked = false
+unlockTalents = Array[ExtResource("1_u80ba")]([ExtResource("3_khhdb"), ExtResource("4_fdxda")])
+metadata/_custom_type_script = "uid://2svpvj73tu77"
