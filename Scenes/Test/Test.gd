@@ -14,7 +14,9 @@ func _ready() -> void:
 	var wanderer = preload(RUTA_CARTA_PERSONAJE).instantiate().inicializar("wanderer","anemo") # as Carta
 	
 	#Agregamos el wanderer a la arena
-	arena.area_jugador.add_child(wanderer)
+	arena.slots_jugador.add_child(wanderer)
+	var mano_jugador: Array[Carta] = [wanderer]
+	arena.agregar_cartas("jugador",1,mano_jugador)
 	# Añadir a la escena
 	#add_child(wanderer)
 
@@ -23,7 +25,8 @@ func _ready() -> void:
 	var library = preload(RUTA_CARTA_ACCION).instantiate().inicializar("library","default") # as Carta
 	
 	
-	arena.area_enemigo.add_child(library)
+	arena.slots_enemigo.add_child(library)
+	#arena.agregar_cartas("enemigo",1,Array[library])
 	# Añadir a la escena
 	# add_child(library)
 
