@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TalentResource" load_steps=3 format=3 uid="uid://drdor5pf03pak"]
+
+[ext_resource type="Script" uid="uid://2svpvj73tu77" path="res://Resources/ArbolTalentos.gd" id="1_vehan"]
+[ext_resource type="Texture2D" uid="uid://bhcuqnw5ugu7n" path="res://Assets/Images/equipar2.png" id="2_65bha"]
+
+[resource]
+script = ExtResource("1_vehan")
+talentIcon = ExtResource("2_65bha")
+is_unlocked = false
+unlockTalents = Array[ExtResource("1_vehan")]([])
+metadata/_custom_type_script = "uid://2svpvj73tu77"
