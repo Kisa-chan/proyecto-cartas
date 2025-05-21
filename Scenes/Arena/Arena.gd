@@ -1,46 +1,74 @@
 extends Node2D
 
+@onready var area_jugador: Node2D = $AreaJugador
+@onready var area_enemigo: Node2D = $AreaEnemigo
 
-@onready var slots_jugador: Node2D = $AreaJugador/SlotsJugador
-@onready var area_deck_jugador: Node2D = $AreaJugador/AreaDeckJugador
-@onready var slots_enemigo: Node2D = $AreaEnemigo/SlotsEnemigo
-@onready var area_deck_enemigo: Node2D = $AreaEnemigo/AreaDeckEnemigo
+var screen_size: Vector2
+var limite_areas_y
+var margen_slots
 
-var centro_area_jugador: Vector2
-var centro_area_enemigo: Vector2
-var posicion_deck_jugador: Vector2
-var posicion_deck_enemigo: Vector2
-
-
-var screen_size
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
-	centro_area_jugador = Vector2(screen_size.x/2,(screen_size.y/4)*3)
-	centro_area_enemigo = Vector2(screen_size.x/2,(screen_size.y/4))
-	posicion_deck_jugador = Vector2(0,(screen_size.y/4)*3)
-	posicion_deck_enemigo = Vector2(0,(screen_size.y/4))
-	slots_jugador.position = centro_area_jugador
-	slots_enemigo.position = centro_area_enemigo
-	area_deck_jugador.position = posicion_deck_jugador
-	area_deck_enemigo.position = posicion_deck_enemigo
+	limite_areas_y = screen_size.y/2
+	margen_slots = screen_size.x/4
+	inicializar_arena()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-func agregar_cartas(tipo_:String, cantidad_: int,cartas_: Array[Carta]) -> void:
-	var posicion
-	if tipo_ == "jugador":
-		posicion = centro_area_jugador
-		posicionar(slots_jugador,cartas_)
-	else: if tipo_ == "enemigo":
-		posicion = centro_area_enemigo
-		posicionar(slots_enemigo,cartas_)
+func inicializar_arena() -> void:
+	area_jugador.position = Vector2(screen_size.x/2,(screen_size.y/4)*3)
+	area_enemigo.position = Vector2(screen_size.x/2,(screen_size.y/4))
+	var offset_x = (screen_size.x / 2) * 0.75
+	var offset_y = (screen_size.y / 2) * 0.33
 	
-		
-func posicionar(centro_,cartas_: Array[Carta]) -> void:
-	pass
-	#for carta in cartas_:
-		#centro_.posicion = posicion
+	var slots_jugador: Node2D = area_jugador.get_node("SlotsJugador")
+	#slots_jugador.position = Vector2(0, -offset_y)
+	
+	var slots_enemigo: Node2D = area_enemigo.get_node("SlotsEnemigo")
+	#slots_enemigo.position = Vector2(0, offset_y)
+	
+	var deck_jugador: Node2D = area_jugador.get_node("DeckJugador")
+	var accion_jugador: Node2D = area_jugador.get_node("CartasAccionJugador")
+	deck_jugador.position = Vector2(-offset_x, offset_y)
+	accion_jugador.position = Vector2(offset_x, offset_y)
+	
+	var deck_enemigo: Node2D = area_enemigo.get_node("DeckEnemigo")
+	var accion_enemigo: Node2D = area_enemigo.get_node("CartasAccionEnemigo")
+	deck_enemigo.position = Vector2(offset_x, -offset_y)
+	accion_enemigo.position = Vector2(-offset_x, -offset_y)
+	
+
+func posicionar_decks(deck_jugador,deck_enemigo) -> void:
+	deck_jugador.position = area_jugador.get_node("DeckJugador").position
+	deck_enemigo.position = area_enemigo.get_node("DeckEnemigo").position
+
+func agregar_cartas(tipo_:String, cantidad_: int,cartas_: Array[Carta]) -> void:
+	var pos = 1
+	var slots: Node2D
+	if tipo_ == "jugador":
+		slots = area_jugador.get_node("SlotsJugador")
+	else: if tipo_ == "enemigo":
+		slots = area_enemigo.get_node("SlotsEnemigo")
+	
+	# Ancho útil: pantalla menos márgenes a los lados
+	var ancho_util = screen_size.x - (2 * margen_slots)
+	print(ancho_util)
+	# Si solo hay uno, se centra. Si hay más, calculamos separación uniforme
+	var separacion = 0.0
+	var centro_carta = 0.0
+	if cantidad_ > 1:
+		separacion = ancho_util / (cantidad_)
+		centro_carta = separacion / 2
+	
+	for carta in cartas_:
+		slots.add_child(carta)
+		var offset_x = (-separacion + centro_carta) * pos
+		carta.position = Vector2(offset_x,0)
+		pos+= 1
+		centro_carta+= separacion
+		print(carta.position)
+	

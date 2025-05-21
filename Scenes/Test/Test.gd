@@ -12,22 +12,20 @@ func _ready() -> void:
 	add_child(arena)
 	# Crear una instancia de la carta sin necesidad de texturas aún
 	var wanderer = preload(RUTA_CARTA_PERSONAJE).instantiate().inicializar("wanderer","anemo") # as Carta
+	var lisa = preload(RUTA_CARTA_PERSONAJE).instantiate().inicializar("lisa","electro")
+	var yaoyao = preload(RUTA_CARTA_PERSONAJE).instantiate().inicializar("yaoyao","geo")
 	
-	#Agregamos el wanderer a la arena
-	arena.slots_jugador.add_child(wanderer)
-	var mano_jugador: Array[Carta] = [wanderer]
-	arena.agregar_cartas("jugador",1,mano_jugador)
-	# Añadir a la escena
-	#add_child(wanderer)
+	#Creamos la mano del jugador
+	var mano_jugador: Array[Carta] = [wanderer,lisa,yaoyao]
+	arena.agregar_cartas("jugador",3,mano_jugador)
 
-	#wanderer.position = Vector2(300, 300)
-	
 	var library = preload(RUTA_CARTA_ACCION).instantiate().inicializar("library","default") # as Carta
-	
-	
-	arena.slots_enemigo.add_child(library)
+
+	var mano_enemigo: Array[Carta] = [library]
+	arena.agregar_cartas("enemigo",1,mano_enemigo)
+
+	#arena.slots_enemigo.add_child(library)
 	#arena.agregar_cartas("enemigo",1,Array[library])
 	# Añadir a la escena
 	# add_child(library)
-
 	#library.position = Vector2(600, 300)

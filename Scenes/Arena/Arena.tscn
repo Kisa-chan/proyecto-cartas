@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://clik6addwock1"]
+[gd_scene load_steps=8 format=3 uid="uid://clik6addwock1"]
 
 [ext_resource type="Script" uid="uid://nteont85p7hi" path="res://Scenes/Arena/Arena.gd" id="1_lh3uc"]
+[ext_resource type="Texture2D" uid="uid://u8kbyjhytyb7" path="res://Assets/Images/equipar3.png" id="2_2fwkt"]
+[ext_resource type="Texture2D" uid="uid://by3upf083u85a" path="res://Assets/Images/hp2.png" id="2_csujq"]
+[ext_resource type="Texture2D" uid="uid://cl4ycumhqefn6" path="res://Assets/Images/hp.png" id="2_fl7xt"]
+[ext_resource type="Texture2D" uid="uid://bhcuqnw5ugu7n" path="res://Assets/Images/equipar2.png" id="3_fl7xt"]
+[ext_resource type="Texture2D" uid="uid://cf8lx1bnvcsmw" path="res://Assets/Images/equipar4.png" id="4_ek0gv"]
+[ext_resource type="Texture2D" uid="uid://xi6fj4cmfvn0" path="res://Assets/Images/equipar.png" id="7_wcn2d"]
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_lh3uc")
@@ -9,10 +15,32 @@ script = ExtResource("1_lh3uc")
 
 [node name="SlotsJugador" type="Node2D" parent="AreaJugador"]
 
-[node name="AreaDeckJugador" type="Node2D" parent="AreaJugador"]
+[node name="Sprite2D" type="Sprite2D" parent="AreaJugador/SlotsJugador"]
+texture = ExtResource("2_csujq")
+
+[node name="DeckJugador" type="Node2D" parent="AreaJugador"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaJugador/DeckJugador"]
+texture = ExtResource("3_fl7xt")
+
+[node name="CartasAccionJugador" type="Node2D" parent="AreaJugador"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaJugador/CartasAccionJugador"]
+texture = ExtResource("2_2fwkt")
 
 [node name="AreaEnemigo" type="Node2D" parent="."]
 
 [node name="SlotsEnemigo" type="Node2D" parent="AreaEnemigo"]
 
-[node name="AreaDeckEnemigo" type="Node2D" parent="AreaEnemigo"]
+[node name="Sprite2D" type="Sprite2D" parent="AreaEnemigo/SlotsEnemigo"]
+texture = ExtResource("2_fl7xt")
+
+[node name="DeckEnemigo" type="Node2D" parent="AreaEnemigo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaEnemigo/DeckEnemigo"]
+texture = ExtResource("4_ek0gv")
+
+[node name="CartasAccionEnemigo" type="Node2D" parent="AreaEnemigo"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaEnemigo/CartasAccionEnemigo"]
+texture = ExtResource("7_wcn2d")
